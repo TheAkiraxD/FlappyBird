@@ -1,10 +1,9 @@
-function Pipe(){
-  this.Spacing = random(100,200);
+function Pipe(min, max, speed){
+  this.Spacing = random(min,max);
   this.Top = random(20, height - 20 - this.Spacing);
   this.Bottom = height - this.Top - this.Spacing;
   this.x = width;
-  this.w = 20;
-  this.Speed = 2;
+  this.w = 30;
   
   this.Show = function(){
     fill(255);
@@ -13,7 +12,11 @@ function Pipe(){
   }
   
   this.Update = function(){
-    this.x -= this.Speed;
+    this.x -= speed;
+  }
+  
+  this.offScreen = function(){
+    return this.x < -(this.w) ? true : false; 
   }
   
  }

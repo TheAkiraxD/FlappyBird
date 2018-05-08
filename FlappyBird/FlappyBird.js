@@ -1,31 +1,20 @@
-var bird;
-var pipes = [];
+var game;
+
 function setup() {
   createCanvas(400,600);
-  bird = new Bird();
-  pipes.push(new Pipe());
+  
+  game = new Game();
+  game.Start();
 }
 
 function draw() {
   background(0);
-  bird.Show();
-  bird.Update();
-  
- if(frameCount % 100 == 0){
-   pipes.push(new Pipe());
- }
  
- 
-  for(var x = 0; x < pipes.length; x++){
-    pipes[x].Show();
-    pipes[x].Update();
-  }
-  
-  
+  game.Run();
 }
 
 function keyPressed(){
   if(keyCode == UP_ARROW){
-    bird.Up();
+    game.BirdUp();
   }
 }
