@@ -4,10 +4,11 @@ function Bird(){
   this.Velocity = 0;
   this.Gravity = 1;
   this.Lift = -16;
-
+  this.Diameter = 32
+  
   this.Show = function(){
     fill(255);
-    ellipse(this.x, this.y, 32, 32);
+    ellipse(this.x, this.y, this.Diameter, this.Diameter);
   }
 
   this.Update = function(){

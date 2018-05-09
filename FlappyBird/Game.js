@@ -1,11 +1,11 @@
-function Game(){
+function Game(SpacingMin, SpacingMax, Speed, Frequency){
   this.Score = 0;
   this.Finished = false;
   this.Difficulty = 1;
-  this.Min = 100 - (this.Difficulty*5);
-  this.Max = 200 - (this.Difficulty*5);
-  this.Speed = 1.7;
-  this.Frequency = 130;
+  this.Min = SpacingMin - (this.Difficulty*5);
+  this.Max = SpacingMax - (this.Difficulty*5);
+  this.Speed = Speed;
+  this.Frequency = Frequency;
   var pipes = [];
   var bird;
   
@@ -37,6 +37,11 @@ function Game(){
     for(var x = pipes.length-1; x >= 0 ; x--){
       pipes[x].Show();
       pipes[x].Update();
+      
+      if(pipes[x].Hit(bird)){
+        delay(20000);
+      }
+      
       if(pipes[x].offScreen()){
         pipes.splice(x, 1);
       }
