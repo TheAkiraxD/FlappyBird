@@ -3,7 +3,7 @@ function Bird(){
   this.x = 70;
   this.Velocity = 0;
   this.Gravity = 0.9;
-  this.Lift = 14;
+  this.Lift = 16;
   this.Diameter = 40;
   var Stop = false;
   

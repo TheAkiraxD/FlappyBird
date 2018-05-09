@@ -15,6 +15,12 @@ function Pipe(min, max, speed){
   this.Update = function(bird){
     this.x -= speed;
     if(this.x < bird.x - bird.Diameter/2 - 1 && Once){
+      if(Score <= 80){
+        GREEN = GREEN +2;
+      }else if(Score <=335){
+        BLUE = BLUE -2;
+        RED = RED +2;
+      }
       Score++;
       Once = false;
     }
@@ -61,7 +67,6 @@ function Pipe(min, max, speed){
     }
     
     if(bird.x > this.x && bird.x < PipeW){
-      console.log("ok");
       if(bird.y - Radius < this.Top || bird.y + Radius > BTop){
         return true;
       }

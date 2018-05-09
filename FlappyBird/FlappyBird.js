@@ -16,7 +16,7 @@ function draw() {
 function Sketch(){
   FCount = 1;
   game = null;
-  game = new Game(120, 240, 1.7, 140);
+  game = new Game(160, 260, 1.8, 170);
   game.Start();
 }
 
