@@ -3,7 +3,8 @@ function Pipe(min, max, speed){
   this.Top = random(20, height - 20 - this.Spacing);
   this.Bottom = height - this.Top - this.Spacing;
   this.x = width;
-  this.w = 30;
+  this.w = 40;
+  var Once = true;
   
   this.Show = function(){
     fill(255);
@@ -11,8 +12,12 @@ function Pipe(min, max, speed){
     rect(this.x, height-this.Bottom, this.w, this.Bottom);
   }
   
-  this.Update = function(){
+  this.Update = function(bird){
     this.x -= speed;
+    if(this.x < bird.x - bird.Diameter/2 - 1 && Once){
+      Score++;
+      Once = false;
+    }
   }
   
   this.offScreen = function(){
@@ -56,7 +61,8 @@ function Pipe(min, max, speed){
     }
     
     if(bird.x > this.x && bird.x < PipeW){
-      if(bird.y + Radius < this.top || bird.y + Radius > BTop){
+      console.log("ok");
+      if(bird.y - Radius < this.Top || bird.y + Radius > BTop){
         return true;
       }
     }

@@ -1,10 +1,11 @@
 function Bird(){
   this.y = height/2;
-  this.x = 50;
+  this.x = 70;
   this.Velocity = 0;
-  this.Gravity = 1;
-  this.Lift = -16;
-  this.Diameter = 32
+  this.Gravity = 0.9;
+  this.Lift = 14;
+  this.Diameter = 40;
+  var Stop = false;
   
   this.Show = function(){
     fill(255);
@@ -28,7 +29,11 @@ function Bird(){
   }
   
   this.Up = function(){
-    this.Velocity += this.Lift;
+    for(var x = 0; x < this.Lift; x++){
+      this.Velocity--;
+      if(Stop)
+        break;
+    }
   }
   
 }
